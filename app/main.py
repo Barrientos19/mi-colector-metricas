@@ -66,6 +66,7 @@ def create_app(
         CORSMiddleware,
         allow_origins=settings.cors_origins_list,
         allow_origin_regex=settings.cors_origin_regex or None,
+        allow_credentials=True,  # navigator.sendBeacon siempre envía en modo credentials: include
         allow_methods=["GET", "POST", "OPTIONS"],
         allow_headers=["Content-Type", "X-Admin-Key"],
         max_age=600,

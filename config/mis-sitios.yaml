@@ -1,0 +1,47 @@
+sites:
+  - slug: blog
+    name: Mi Blog (GitHub Pages)
+    type: propia
+    timezone: America/Mexico_City
+    tags: [blog, pages]
+    domains:
+      - host: localhost:8081
+        type: temporal
+        environment: local
+        canonical: false
+      - host: barrientos19.github.io
+        type: plataforma
+        environment: production
+        canonical: true
+    channels:
+      - type: beacon
+        origin_mode: pattern
+        origins:
+          - http://localhost:8081
+          - https://barrientos19.github.io
+        environments: [local, production]
+        path_prefix: /Mi_blog/
+        key_ref: literal:pk_live_blog_ddd2df6121a0255987a6922eb4063f07
+
+  - slug: landing
+    name: Landing profesional (Vercel)
+    type: propia
+    timezone: America/Mexico_City
+    tags: [landing, vercel]
+    domains:
+      - host: localhost:8082
+        type: temporal
+        environment: local
+        canonical: false
+      - host: milanding-beta.vercel.app
+        type: plataforma
+        environment: production
+        canonical: true
+    channels:
+      - type: beacon
+        origin_mode: pattern
+        origins:
+          - http://localhost:8082
+          - https://milanding-beta.vercel.app
+        environments: [local, production]
+        key_ref: literal:pk_live_landing_c925443d909683235495c338a9298a4a
